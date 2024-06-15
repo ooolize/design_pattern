@@ -1,0 +1,8 @@
+# 指定源文件
+set(SOURCE echo.cpp)
+
+# 指定生成目标
+add_executable(echo ${SOURCE})
+
+# 指定头文件路径
+target_include_directories(echo PRIVATE ${PROJECT_SOURCE_DIR}/include)
