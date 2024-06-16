@@ -13,7 +13,5 @@
 #include <iostream>
 #include <thread>
 
-#include "test.hpp"
-
 int main() {
 }

@@ -1,3 +1,4 @@
 # add_subdirectory(echo)
 # add_subdirectory(strategy)
-add_subdirectory(command)
+# add_subdirectory(command)
+add_subdirectory(flyWeight)
