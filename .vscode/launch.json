@@ -5,7 +5,7 @@
             "name": "Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "F:/project/liangongfang/cpp/practice/design_pattern/build/bin/prototype.exe",
+            "program": "F:/project/liangongfang/cpp/practice/design_pattern/build/bin/state.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
