@@ -15,7 +15,7 @@ int main() {
                     std::make_shared<Drink>("pepsi", 3.5));
   repo.addCommotity(CommodityType::ADCA, std::make_shared<Drink>("adCa", 5.5));
   repo.addCommotity(CommodityType::SHREDDED,
-                    std::make_shared<Snack>("shredded", 3.5, 3));
+                    std::make_shared<Snack>("shredded", 3.5, false));
 
   Box::BoxUPtr snack_box = std::make_unique<SnackBox>(3, 3);
   Box::BoxUPtr drink_box = std::make_unique<DrinkBox>(3, 3);

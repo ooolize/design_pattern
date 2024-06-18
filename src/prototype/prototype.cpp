@@ -22,14 +22,19 @@ double Commodity::getPrice() const {
 Drink::Drink(const std::string& name, double price) : Commodity(name, price) {
 }
 
-Snack::Snack(const std::string& name, double price, size_t count)
-  : Commodity(name, price), _count(count) {
+Snack::Snack(const std::string& name, double price, bool is_spicy)
+  : Commodity(name, price), _is_spicy(is_spicy) {
 }
 
 Box::Box(size_t width, size_t height) : _width(width), _height(height) {
 }
 
 SnackBox::SnackBox(size_t width, size_t height) : Box(width, height) {
+  for (size_t i = 0; i < height; i++) {
+    for (size_t i = 0; i < width; i++) {
+      _snack.push_back(repo.getCommotity(CommodityType::SHREDDED));
+    }
+  }
 }
 
 Box::BoxUPtr SnackBox::clone() {
@@ -84,8 +89,9 @@ Box::BoxUPtr DrinkBox::clone() {
 
 void DrinkBox::show() const {
   for (auto& row : _drink) {
+    // 相同类型的饮料 所指向的地址预计是一样的
     for (auto& cell : row) {
-      std::cout << cell->getName() << " ";
+      std::cout << cell->getName() << cell.get() << " ";
     }
     std::cout << std::endl;
   }

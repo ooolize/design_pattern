@@ -33,20 +33,17 @@ class Commodity {
 
 class Drink : public Commodity {
  public:
-  typedef std::shared_ptr<Drink> DrinkPtr;
   Drink() = default;
   Drink(const std::string& name, double price);
 };
 
 class Snack : public Commodity {
  public:
-  typedef std::shared_ptr<Snack> SnackPtr;
   Snack() = default;
-  Snack(const std::string& name, double price, size_t count);
+  Snack(const std::string& name, double price, bool is_spicy);
 
  private:
-  // 小吃是袋装的，记录数量!
-  size_t _count;
+  bool _is_spicy;
 };
 
 class Box {
@@ -56,6 +53,7 @@ class Box {
   virtual ~Box() = default;
   virtual BoxUPtr clone() = 0;
   virtual void show() const = 0;
+
   size_t _width;
   size_t _height;
 };
@@ -74,7 +72,6 @@ class DrinkBox : public Box {
  public:
   DrinkBox(size_t width, size_t height);
   BoxUPtr clone() override;
-  // Drink::DrinkPtr getDrink(size_t x, size_t y) const;
   void show() const override;
 
  private:
@@ -100,13 +97,23 @@ class Repository {
   }
 
   void show() const {
-    std::cout << _box.size() << std::endl;
-    for (auto& box : _box) {
-      box->show();
+    for (auto& m : commodity_type) {
+      std::cout << m.first << " " << m.second->getName() << m.second.get()
+                << std::endl;
+    }
+    std::cout << "box size : " << _box.size() << std::endl;
+    std::cout << "----------" << std::endl;
+    for (size_t i = 0; i < _box.size(); ++i) {
+      // 不同盒子指针 预计是不同的
+      std::cout << "=== box: " << i << " " << _box[i].get() << std::endl;
+      _box[i]->show();
     }
   }
 
  private:
+  // box是独一无二的 为了验证原型模式
   std::vector<Box::BoxUPtr> _box;
+
+  // 商品是复用的 为了验证享元模式
   std::map<size_t, Commodity::CommoditySptr> commodity_type;
 };
