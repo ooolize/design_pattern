@@ -50,7 +50,8 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "map": "cpp"
     },
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 2000,

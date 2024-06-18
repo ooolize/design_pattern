@@ -7,7 +7,7 @@
 #include <queue>
 #include <thread>
 
-#include "command.hpp"
+#include "command.h"
 
 int main() {
   std::queue<CommandPtr> commands_queue;

@@ -1,7 +1,7 @@
-set(SOURCE flyWeight.cpp main.cpp)
+set(SOURCE flyweight.cpp main.cpp)
 
-add_executable(flyWeight ${SOURCE})
+add_executable(flyweight ${SOURCE})
 
-target_include_directories(flyWeight PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(flyweight PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
-set_target_properties(flyWeight PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
+set_target_properties(flyweight PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)

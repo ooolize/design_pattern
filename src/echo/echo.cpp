@@ -5,7 +5,7 @@
  * @LastEditors: lize
  */
 
-#include "echo.hpp"
+#include "echo.h"
 void Echo::func() {
   std::cout << "Echo::func" << std::endl;
 }

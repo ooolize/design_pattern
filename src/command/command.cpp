@@ -4,7 +4,7 @@
  * @Date: 2024-06-15
  * @LastEditors: lize
  */
-#include "command.hpp"
+#include "command.h"
 
 int Role::get_x() {
   return x;

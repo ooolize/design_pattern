@@ -5,7 +5,7 @@
  * @LastEditors: lize
  */
 
-#include "strategy.hpp"
+#include "strategy.h"
 void Strategy::func() {
   std::cout << "Strategy::func" << std::endl;
 }
