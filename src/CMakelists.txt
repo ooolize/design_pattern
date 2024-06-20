@@ -4,4 +4,5 @@
 # add_subdirectory(flyweight)
 # add_subdirectory(prototype)
 # add_subdirectory(singleton)
-add_subdirectory(state)
+# add_subdirectory(state)
+add_subdirectory(double_buffer)
