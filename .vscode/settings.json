@@ -51,7 +51,13 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "format": "cpp",
+        "iomanip": "cpp",
+        "span": "cpp",
+        "sstream": "cpp"
     },
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 2000,
