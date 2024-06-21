@@ -6,4 +6,5 @@
 # add_subdirectory(singleton)
 # add_subdirectory(state)
 # add_subdirectory(double_buffer)
-add_subdirectory(update_method)
+# add_subdirectory(update_method)
+add_subdirectory(type_object)
