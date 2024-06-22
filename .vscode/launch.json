@@ -5,7 +5,7 @@
             "name": "Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "F:/project/liangongfang/cpp/practice/design_pattern/build/bin/component.exe",
+            "program": "F:/project/liangongfang/cpp/practice/design_pattern/build/bin/event_queue.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

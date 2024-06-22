@@ -10,4 +10,5 @@
 # add_subdirectory(update_method)
 # add_subdirectory(type_object)
 # add_subdirectory(subclass_sandbox)
-add_subdirectory(component)
+# add_subdirectory(component)
+add_subdirectory(event_queue)
