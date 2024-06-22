@@ -2,7 +2,7 @@
 # add_subdirectory(strategy)
 # add_subdirectory(command)
 # add_subdirectory(flyweight)
-add_subdirectory(prototype)
+# add_subdirectory(prototype)
 
 # add_subdirectory(singleton)
 # add_subdirectory(state)
@@ -10,3 +10,4 @@ add_subdirectory(prototype)
 # add_subdirectory(update_method)
 # add_subdirectory(type_object)
 # add_subdirectory(subclass_sandbox)
+add_subdirectory(component)
