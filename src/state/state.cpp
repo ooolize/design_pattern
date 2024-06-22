@@ -7,7 +7,6 @@
 
 #include "state.h"
 
-extern std::map<StateType, std::function<void()>> state_map;
 State::StateUPtr JumpingState::handleInput(const std::string& input) {
   std::cout << "JumpingState handleInput " << input << std::endl;
   if (input == "attack") {
@@ -20,7 +19,7 @@ void JumpingState::update() {
   std::cout << "updateJumping" << std::endl;
 }
 void JumpingState::enter() {
-  state_map[StateType::JUMPING]();
+  get_state_map()[StateType::JUMPING]();
 }
 
 State::StateUPtr StandingState::handleInput(const std::string& input) {
@@ -38,7 +37,7 @@ void StandingState::update() {
 }
 
 void StandingState::enter() {
-  state_map[StateType::STANDING]();
+  get_state_map()[StateType::STANDING]();
 }
 
 State::StateUPtr DuckingState::handleInput(const std::string& input) {
@@ -51,14 +50,14 @@ State::StateUPtr DuckingState::handleInput(const std::string& input) {
 void DuckingState::update() {
   std::cout << "updateDiving" << std::endl;
   charge_time++;
-  if (charge_time > 10) {
+  if (charge_time > excharge_time) {
     superBoom();
     charge_time = 0;
   }
 }
 
 void DuckingState::enter() {
-  state_map[StateType::DUCKING]();
+  get_state_map()[StateType::DUCKING]();
 }
 
 void DuckingState::superBoom() {
@@ -74,5 +73,5 @@ void DivingState::update() {
 }
 
 void DivingState::enter() {
-  state_map[StateType::DIVING]();
+  get_state_map()[StateType::DIVING]();
 }

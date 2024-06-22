@@ -12,10 +12,15 @@
 #include <memory>
 #include <string>
 #include <vector>
+constexpr double maidong_price = 5.5;
+constexpr double pepsi_price = 3.5;
+constexpr double adCa_price = 4.5;
+constexpr double shredded_price = 6.5;
 enum CommodityType : size_t { MAIDONG, PEPSI, ADCA, SHREDDED };
 class Repository;
-extern Repository repo;
-
+// extern Repository repo;
+using RepositoryUPtr = std::unique_ptr<Repository>;
+using RepositorySptr = std::shared_ptr<Repository>;
 class Commodity {
  public:
   typedef std::shared_ptr<Commodity> CommoditySptr;
@@ -49,18 +54,23 @@ class Snack : public Commodity {
 class Box {
  public:
   typedef std::unique_ptr<Box> BoxUPtr;
-  Box(size_t width, size_t height);
+  Box(size_t width, size_t height, RepositorySptr repo);
   virtual ~Box() = default;
   virtual BoxUPtr clone() = 0;
   virtual void show() const = 0;
+  auto getRepoMap() const;
+  // void init(RepositorySptr repo);
 
   size_t _width;
   size_t _height;
+
+ private:
+  RepositorySptr _repo;
 };
 
 class SnackBox : public Box {
  public:
-  SnackBox(size_t width, size_t height);
+  SnackBox(size_t width, size_t height, RepositorySptr repo);
   BoxUPtr clone() override;
   void show() const override;
 
@@ -70,7 +80,7 @@ class SnackBox : public Box {
 
 class DrinkBox : public Box {
  public:
-  DrinkBox(size_t width, size_t height);
+  DrinkBox(size_t width, size_t height, RepositorySptr repo);
   BoxUPtr clone() override;
   void show() const override;
 
@@ -91,7 +101,9 @@ class Repository {
   void addCommotity(size_t seq, Commodity::CommoditySptr goods) {
     commodity_type[seq] = goods;
   }
-
+  auto getAllCommodities() const {
+    return commodity_type;
+  }
   Commodity::CommoditySptr getCommotity(size_t seq) {
     return commodity_type[seq];
   }
@@ -112,8 +124,8 @@ class Repository {
 
  private:
   // box是独一无二的 为了验证原型模式
-  std::vector<Box::BoxUPtr> _box;
+  std::vector<Box::BoxUPtr> _box{};
 
   // 商品是复用的 为了验证享元模式
-  std::map<size_t, Commodity::CommoditySptr> commodity_type;
+  std::map<size_t, Commodity::CommoditySptr> commodity_type{};
 };

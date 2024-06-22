@@ -25,13 +25,13 @@ void Box::randomDisplay() {
       auto num = dis(gen);
       switch (num) {
         case 0:
-          cell = std::make_shared<Drink>("maidong", 4.5);
+          cell = std::make_shared<Drink>("maidong", maidong_price);
           break;
         case 1:
-          cell = std::make_shared<Drink>("pepsi", 3.5);
+          cell = std::make_shared<Drink>("pepsi", pepsi_price);
           break;
         case 2:
-          cell = std::make_shared<Drink>("adCa", 5.5);
+          cell = std::make_shared<Drink>("adCa", adCa_price);
           break;
         default:
           break;
@@ -41,8 +41,8 @@ void Box::randomDisplay() {
 }
 
 void Box::show() const {
-  for (auto& row : _drink) {
-    for (auto& cell : row) {
+  for (const auto& row : _drink) {
+    for (const auto& cell : row) {
       std::cout << cell->getName() << " ";
     }
     std::cout << std::endl;

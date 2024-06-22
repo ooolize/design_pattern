@@ -9,6 +9,10 @@
 #include <memory>
 #include <string>
 #include <vector>
+
+constexpr double maidong_price = 5.5;
+constexpr double pepsi_price = 3.5;
+constexpr double adCa_price = 4.5;
 class Drink {
  public:
   typedef std::shared_ptr<Drink> DrinkPtr;
@@ -29,9 +33,9 @@ class Box {
     std::for_each(
       _drink.begin(), _drink.end(), [this](auto& row) { row.resize(_height); });
 
-    _maidong = Drink("maidong", 5.5);
-    _pepsi = Drink("pepsi", 3.5);
-    _adCa = Drink("adCa", 4.5);
+    _maidong = Drink("maidong", maidong_price);
+    _pepsi = Drink("pepsi", pepsi_price);
+    _adCa = Drink("adCa", adCa_price);
   }
   Drink::DrinkPtr getDrink(size_t x, size_t y) const;
   void randomDisplay();

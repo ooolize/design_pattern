@@ -30,5 +30,5 @@ Breed& Monster::getBreed() {
   return breed;
 }
 
-Monster::Monster(const Breed& breed) : breed(const_cast<Breed&>(breed)) {
+Monster::Monster( Breed& breed) : breed(breed) {
 }

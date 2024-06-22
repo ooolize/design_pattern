@@ -7,6 +7,7 @@
 #include <thread>
 
 #include "update_method.h"
+constexpr size_t sleep_time = 1000;
 int main() {
   World world;
   world.addEntity(std::make_unique<Bullet>(0, 0));
@@ -15,7 +16,7 @@ int main() {
   while (true) {
     system("cls");
     world.gameLoop();
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(sleep_time));
   }
   return 0;
 }

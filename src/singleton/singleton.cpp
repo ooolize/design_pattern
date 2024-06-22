@@ -4,7 +4,6 @@
  * @Date: 2024-06-18
  * @LastEditors: lize
  */
-#pragma once
 #include "singleton.h"
 
 template <typename T>

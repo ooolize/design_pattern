@@ -26,13 +26,21 @@ Snack::Snack(const std::string& name, double price, bool is_spicy)
   : Commodity(name, price), _is_spicy(is_spicy) {
 }
 
-Box::Box(size_t width, size_t height) : _width(width), _height(height) {
+Box::Box(size_t width, size_t height, RepositorySptr repo)
+  : _width(width), _height(height), _repo(repo) {
+}
+// void Box::init(RepositorySptr repo) {
+//   _repo = repo;
+// }
+auto Box::getRepoMap() const {
+  return _repo->getAllCommodities();
 }
 
-SnackBox::SnackBox(size_t width, size_t height) : Box(width, height) {
+SnackBox::SnackBox(size_t width, size_t height, RepositorySptr repo)
+  : Box(width, height, repo) {
   for (size_t i = 0; i < height; i++) {
     for (size_t i = 0; i < width; i++) {
-      _snack.push_back(repo.getCommotity(CommodityType::SHREDDED));
+      _snack.push_back(getRepoMap()[CommodityType::SHREDDED]);
     }
   }
 }
@@ -44,7 +52,8 @@ void SnackBox::show() const {
   std::cout << "SnackBox size = " << _snack.size() << std::endl;
 }
 
-DrinkBox::DrinkBox(size_t width, size_t height) : Box(width, height) {
+DrinkBox::DrinkBox(size_t width, size_t height, RepositorySptr repo)
+  : Box(width, height, repo) {
   _drink.resize(_width);
   std::for_each(
     _drink.begin(), _drink.end(), [this](auto& row) { row.resize(_height); });
@@ -68,13 +77,13 @@ void DrinkBox::randomDisplay() {
       auto num = dis(gen);
       switch (num) {
         case 0:
-          cell = repo.getCommotity(CommodityType::MAIDONG);
+          cell = getRepoMap()[CommodityType::MAIDONG];
           break;
         case 1:
-          cell = repo.getCommotity(CommodityType::PEPSI);
+          cell = getRepoMap()[CommodityType::PEPSI];
           break;
         case 2:
-          cell = repo.getCommotity(CommodityType::ADCA);
+          cell = getRepoMap()[CommodityType::ADCA];
           break;
         default:
           break;

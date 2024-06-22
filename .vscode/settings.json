@@ -61,4 +61,5 @@
     },
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 2000,
+    "clang-tidy.buildPath": "${workspaceFolder}/build",
 }

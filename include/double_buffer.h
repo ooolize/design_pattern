@@ -8,10 +8,12 @@
 
 #include <memory>
 #include <vector>
+
+constexpr size_t n = 10;
 class FrameBuffer {
  public:
   typedef std::unique_ptr<FrameBuffer> FrameBufferUPtr;
-  FrameBuffer(size_t width, size_t height);
+  FrameBuffer(size_t width = 10, size_t height = 10);
   int getPxiel(size_t x, size_t y) const;
   void setPixel(size_t x, size_t y, int color);
   void getBuffer();
@@ -28,7 +30,7 @@ class Scene {
   Scene();
   void draw(int i);
   void getBuffer();
-  void swap();
+  void swap() noexcept;
   void update(int i);
 
  private:

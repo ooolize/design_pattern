@@ -9,10 +9,10 @@
 
 #include <algorithm>
 #include <iostream>
-FrameBuffer::FrameBuffer(size_t width = 10, size_t height = 10) {
+
+FrameBuffer::FrameBuffer(size_t width, size_t height)
+  : _width(width), _height(height) {
   _buffer.resize(width * height);
-  _width = width;
-  _height = height;
 }
 
 int FrameBuffer::getPxiel(size_t x, size_t y) const {
@@ -43,14 +43,14 @@ Scene::Scene() {
 }
 
 void Scene::draw(int i) {
-  for (size_t y = 0; y < 10; ++y) {
-    for (size_t x = 0; x < 10; ++x) {
+  for (size_t y = 0; y < n; ++y) {
+    for (size_t x = 0; x < n; ++x) {
       current_buffer->setPixel(x, y, i);
     }
   }
 }
 
-void Scene::swap() {
+void Scene::swap() noexcept {
   std::swap(current_buffer, next_buffer);
 }
 

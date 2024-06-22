@@ -28,6 +28,6 @@ class Monster {
   Breed& getBreed();
 
  private:
-  Monster(const Breed& breed);
+  Monster(Breed& breed);
   Breed& breed;
 };

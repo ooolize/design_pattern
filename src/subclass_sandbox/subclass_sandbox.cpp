@@ -17,12 +17,12 @@ void Felidae::sleep(size_t seconds) {
 
 void Lion::act() {
   std::cout << _name << " is acting" << std::endl;
-  move(10);
-  sleep(5);
+  move(LionMoveSteps);
+  sleep(LionSleepSeconds);
 }
 
 void Tiger::act() {
   std::cout << _name << " is acting" << std::endl;
-  move(5);
-  sleep(10);
+  move(TigerMoveSteps);
+  sleep(TigerSleepSeconds);
 }

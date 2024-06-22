@@ -8,6 +8,12 @@
 #pragma once
 #include <memory>
 #include <string>
+
+constexpr size_t LionMoveSteps = 10;
+constexpr size_t LionSleepSeconds = 5;
+constexpr size_t TigerMoveSteps = 5;
+constexpr size_t TigerSleepSeconds = 10;
+
 class Felidae {
  public:
   using FelidaeUPtr = std::unique_ptr<Felidae>;

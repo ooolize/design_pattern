@@ -16,7 +16,17 @@ enum StateType {
   DUCKING,
   DIVING,
 };
+constexpr size_t excharge_time = 10;
 
+std::map<StateType, std::function<void()>>& get_state_map() {
+  static std::map<StateType, std::function<void()>> state_map = {
+    {JUMPING, []() { std::cout << "dealJumping" << std::endl; }},
+    {STANDING, []() { std::cout << "dealStanding" << std::endl; }},
+    {DUCKING, []() { std::cout << "dealDucking" << std::endl; }},
+    {DIVING, []() { std::cout << "dealDiving" << std::endl; }},
+  };
+  return state_map;
+}
 class State {
  public:
   typedef std::unique_ptr<State> StateUPtr;
