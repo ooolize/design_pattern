@@ -12,4 +12,5 @@
 # add_subdirectory(subclass_sandbox)
 # add_subdirectory(component)
 # add_subdirectory(event_queue)
-add_subdirectory(server_locator)
+# add_subdirectory(server_locator)
+add_subdirectory(dirty_flag)

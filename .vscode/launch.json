@@ -5,7 +5,7 @@
             "name": "Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "F:/project/liangongfang/cpp/practice/design_pattern/build/bin/server_locator.exe",
+            "program": "F:/project/liangongfang/cpp/practice/design_pattern/build/bin/dirty_flag.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
