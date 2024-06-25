@@ -5,12 +5,12 @@
             "name": "Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "F:/project/liangongfang/cpp/practice/design_pattern/build/bin/event_queue.exe",
+            "program": "F:/project/liangongfang/cpp/practice/design_pattern/build/bin/server_locator.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": true,
+            "externalConsole": false,
             "miDebuggerPath": "D:/mingw/mingw64/bin/gdb.exe",
             "MIMode": "gdb",
             "setupCommands": [
@@ -20,6 +20,9 @@
                     "ignoreFailures": true
                 }
             ],
+            // "logging": {
+            //     "engineLogging": true
+            // }
             // "preLaunchTask": "build"
         }
     ]
