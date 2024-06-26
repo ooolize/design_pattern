@@ -13,4 +13,5 @@
 # add_subdirectory(component)
 # add_subdirectory(event_queue)
 # add_subdirectory(server_locator)
-add_subdirectory(dirty_flag)
+# add_subdirectory(dirty_flag)
+add_subdirectory(object_pool)
